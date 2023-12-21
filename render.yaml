@@ -1,0 +1,22 @@
+databases:
+  - name: Howdoyoulikeit_DB
+    databaseName: howdoyoulikeit_db
+    user: Howdoyoulikeit...?
+    region: singapore
+
+services:
+  - type: web
+    name: Howdoyoulikeit...?
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: Howdoyoulikeit_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+
