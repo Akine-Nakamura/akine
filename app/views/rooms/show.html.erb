@@ -1,0 +1,56 @@
+<div class="dm">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+  <h3>DM</h3>
+</div>
+
+<div class="dm_container">
+    <div class="users_image">
+      <% if @entries[0].user == current_user %>
+        <% @entries.each do |e| %>
+          <div class="user">
+            <%= image_tag e.user.image_url, size: "120x100", class: "user_image" if e.user.image? %>
+            <h2><strong><a href="/users/<%= e.user.id %>"><%= e.user.name%></a></strong></h2>
+          </div>
+        <% end %>
+      <% else %>
+        <% @entries.reverse_each do |e| %>
+          <div class="user">
+            <%= image_tag e.user.image_url, size: "120x100", class: "user_image" if e.user.image? %>
+            <h2><strong><a href="/users/<%= e.user.id %>"><%= e.user.name%></a></strong></h2>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+      <% if @messages.present? %>
+        <% @messages.each do |m| %>
+          <% if m.user == current_user %>
+            <div class="balloon">
+              <strong><%= m.content %></strong>
+            </div>
+          <% else %>
+            <div class="balloon2">
+              <strong><%= m.content %></strong>
+            </div>
+          <%end%>
+        <% end %>
+      <% else %>
+        <h3 class="text-center">Lets Start DM!</h3>
+      <% end %>
+     <div class="user_kensaku">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :content, :placeholder => "Type Message Here" , size:"150x30" %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+        <%= f.submit "SEND" %>
+      <% end %>
+     </div>
+</div>
+<br>
+<div class="DMlist">
+    <h2>Let's talk with more users!</h2>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+    <h1><%= link_to "#BACK to DM LIST", users_path %></h1>
+</div>

@@ -1,0 +1,71 @@
+<div class="USERtitle">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+    <h3>USER PROFILE</h3>
+</div>
+<div class="USER">
+    <div class="USERinfo">
+        <br>
+        <%= image_tag @user.image_url, class:"gazou" , size: "250x200" if @user.image? %>
+        <br>
+        <div class="profile">
+            <ul>NAME : 
+                <li><%= @user.name %></li>
+            </ul>
+            <br>
+            <ul> E-MAIL : 
+                <li><%= @user.email %></li>
+            </ul>
+            <br>
+            <ul>INTRODUCE : 
+                <li><%= @user.profile %></li>
+            </ul>
+            <br>
+            <br>
+            <% if current_user.id == @user.id %>
+            <%= link_to "EDIT", edit_user_registration_path %>
+            <% end %>
+        </div>
+    </div>
+    <div class="USERpoststitle">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+        <h2>MY PREVIOUS POSTS</h2>
+    </div>
+
+    <div class="USERposts">
+        <% @user.tweets.each do |t| %>
+            <div class="posts">
+                <%= image_tag t.image_url, class:"USERpostspics", size: "350x300" if t.image? %><br>
+                <h3><%= link_to t.name, tweet_path(t.id) %></h3><br>
+                <%= link_to t.link %><br>
+                <%= t.genre%><br>
+                <h3>LENGTH OF SERVICE</h3><%= t.year %><br>
+                <h3>ABOUT</h3><%= t.about %><br>
+                <h3>COMMENT</h3><%= t.comment %><br>               
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div class="user-in">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+            <% if @user.id == current_user.id %>
+                <h1><%= link_to @msg, users_path %></h1>
+            <% else %>
+                <% if @isRoom == true %>
+                <h1><%= link_to '#SEND DM TO THIS USER', room_path(@roomId) %></h1>
+                <% else %>
+                    <%= form_for @room do |f| %>
+                        <%= fields_for @entry do |e|%>
+                            <% e.hidden_field :user_id, value: @user.id %>
+                        <% end %>
+                    <%= f.submit "DMを開始する", class:"user-inbutton"%>
+                    <% end %>
+                <% end %>
+            <% end %>
+    </div>
+</div>

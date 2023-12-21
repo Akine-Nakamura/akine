@@ -1,0 +1,77 @@
+<%= form_for @tweet do |f| %>
+
+<div class="field image">
+<%= f.label :image %>
+<%= f.file_field :image %>
+</div>
+
+<div class="field">
+<%= f.label :"COMPANY NAME" %><br>
+<%= f.text_field :name, :size => 100 %>
+</div>
+<br>
+<div class="field">
+<%= f.label :INDUSTRY %><br>
+<%= f.select :genre,
+[["メーカー", "メーカー"],
+["商社", "商社"],
+["流通・小売", "流通・小売"],
+["金融・証券・保険", "金融・証券・保険"],  
+["広告・出版", "広告・出版"],
+["ソフトウェア・情報処理", "ソフトウェア・情報処理"],
+["コンサル", "コンサル"],
+["不動産", "不動産"],
+["飲食", "飲食"],
+["医療・福祉", "医療・福祉"],
+["教育", "教育"],
+["人材", "人材"],
+["美容", "美容"],
+["その他", "その他"]], include_blank: "選択して下さい" %>
+</div>
+<br>
+
+<div class="field">
+<%= f.label :"LENGTH OF SERVICE" %><br>
+<%= f.text_field :year, :size => 50 %>
+</div>
+<br>
+<div class="field">
+<%= f.label :"BUSINESS DETAILS" %><br>
+<%= f.text_area :about, :size => "50x2" %>
+</div>
+<br>
+<div class="field">
+<%= f.label :"Your Thoughts about the Working Conditions" %><br>
+<%= f.text_area :comment, :size => "50x4" %>
+</div>
+<br>
+<div class="field">
+<%= f.label :"OFFICIAL WEBSITE URL" %><br>
+<%= f.text_field :link, :size => 100 %>
+</div>
+
+<h5>TOTAL SCORE</h5>
+<div class="post_form">
+<%= f.radio_button :overall, 5 ,id: 'star1'%>
+<label for="star1"><span class="text">最高</span>★</label>
+
+<%= f.radio_button :overall, 4 ,id: 'star2'%>
+<label for="star2"><span class="text">良い</span>★</label>
+
+<%= f.radio_button :overall, 3 ,id: 'star3'%>
+<label for="star3"><span class="text">普通</span>★</label>
+
+<%= f.radio_button :overall, 2 ,id: 'star4'%>
+<label for="star4"><span class="text">悪い</span>★</label>
+
+<%= f.radio_button :overall, 1 ,id: 'star5'%>
+<label for="star5"><span class="text">最悪</span>★</label>
+</div>
+
+<br>
+<br>
+<div class="newpost">
+<%= f.submit "EDIT" %>
+</div>
+
+<% end %>

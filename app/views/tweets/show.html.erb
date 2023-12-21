@@ -1,0 +1,88 @@
+<div class="SHOWtitle">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+  <h3>COMPANY DETAIL</h3>
+</div>
+
+<div class="SHOW">
+    <div class="SHOWtweet">
+      <ul>
+        <%= image_tag @tweet.image_url, class: "SHOWtweetpic", size: "450x400" if @tweet.image? %>
+      </ul>
+      <ul>
+        <h1><%= @tweet.name %>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+        </h2><br>
+        <h4>OFFICIAL WEBSITE</h4>
+          <p><%= link_to @tweet.link %></p>
+        <p><%= @tweet.genre %></p>
+        <h4>ABOUT</h4>
+          <p><%= @tweet.about %></p>
+        <h4>TOTAL SCORE</h4>
+        <p><%= @tweet. overall %></p>
+        <h5>CREATED AT</h5>
+        <p><%= @tweet.created_at %></p>
+        <h5>UPDATED AT</h5>
+        <p><%= @tweet.updated_at %></p>
+
+          <% if user_signed_in? %>
+            <% if current_user.already_liked?(@tweet) %>
+              <%= link_to tweet_like_path(@tweet), method: :delete do %>
+                  <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+              <% end %>
+            <% else %>
+              <%= link_to tweet_likes_path(@tweet), method: :post do %>
+                  <i class="far fa-heart"></i><%= @tweet.likes.count %>
+              <% end %>
+            <% end %>
+          <% else %>
+              <i class="far fa-heart"></i><%= @tweet.likes.count %>
+          <% end %>
+
+          <% if user_signed_in? && current_user.id == @tweet.user_id %>
+                <%= button_to "EDIT", edit_tweet_path(@tweet.id) %>
+                <%= button_to "DELETE", tweet_path(@tweet), method: :delete %>
+          <% end %>
+      </ul>
+    </div>
+    <div class="SHOWhr">
+      <hr size="1">
+    </div>
+    <br>
+    <div class="SHOWcomment">
+      <h2>POSTERS COMMENT</h2>
+      <br>
+      <p><%= @tweet. comment %></p>
+
+      <% @tweet.liked_users.each do |user| %>
+        <li><%= user.email %></li>
+        <li><%= link_to user.name, user_path(user.id) %></li>
+      <% end %>
+      <br>
+      <!--ここからコメント--!>
+          <div class="comment-wrapper">
+            <h2>YOUR OPINIONS/QUESTIONS</h2>
+            <br>
+            <% @comments.each do |c| %>
+              <div>
+                <%= c.user.email unless c.user.blank? %>
+                <br>
+                <%= c.content %>
+              </div><br>
+            <% end %>
+          
+            <% if user_signed_in? %>
+              <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+                <%= f.text_area :content %>
+                <%= button_tag type: "submit" do %>
+                  <i class="far fa-comments"></i> SEND
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          <!--ここまでコメント--!>
+    </div>
+</div>

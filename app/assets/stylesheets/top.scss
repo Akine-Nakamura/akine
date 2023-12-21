@@ -1,0 +1,194 @@
+.TOP{
+    .rara{
+      width: 100%;
+      position: relative;
+    }
+    .TOPtitle{
+      position: absolute; top: 600px; left: 600px;
+      font-family: 'Kranky', serif;
+      font-family: 'Yellowtail', cursive;
+      font-size: 30px;
+      text-align: center;
+    }
+  .DATE{
+    width: 98%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 1%;
+    margin-right: 2%;
+    overflow: visible;
+  }
+  .DATE::after{
+    background: #fff;
+    content:'Released in November 2023';
+    position: relative;
+    top:-13px
+  }
+  .THEME{
+    margin: 30px 0px;
+    display: flex;
+    text-align: center;
+    justify-content:center
+  }
+  .THEME h2{
+    color: rgb(196, 173, 97);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .THEME li{
+    color: black;
+    font-weight: lighter;
+  }
+  .CONCEPT{
+      padding-bottom: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    
+    .CONCEPTtitle{
+      margin: 60px 30px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 35px;
+      letter-spacing: 5px;
+      writing-mode:vertical-lr;
+      text-orientation: sideways;
+      justify-content: center;
+    }
+    .coco{
+      border-radius: 20%;
+    }
+    .CONCEPTtitle h1{
+      position: absolute; top: 120px; left: 35px;
+    }
+    .CONCEPTdetail{
+      margin-left: 10px;
+      text-align: left;
+      line-height: 30px;
+    }
+    .CONCEPTdetail h2{
+      margin-bottom: 40px;
+    }
+  }
+  .LINEUP{
+    background-color: rgb(238, 240, 230);
+    padding-bottom: 50px;
+  }
+  .LINEUPtitle{
+    font-family: 'DM Serif Display', serif;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .LINEUPtitle h1{
+    margin-top: 50px;
+    margin-left: 80px;
+    font-size: 40px;
+  }
+  .LINEUPdetails{
+    margin: 40px 20px 40px 90px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    //justify-content:space-around;
+    font-size: 30px;
+    font-family: 'DM Serif Display', serif;    
+  }
+  .LINEUP ul{
+    margin-right: 40px;
+  }
+  .LINEUPpics{
+    border-radius: 15px;
+  }
+  .LINEUP h2{
+    display: flex;
+    align-items: flex-end;
+    margin-left: 250px;
+  }
+  .LINEUP a{
+    text-decoration: none; 
+  }
+  .SEEMORE {
+    font-family: 'DM Serif Display', serif;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content:center;
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+a.btn-border01 {
+  border-radius: 0;
+}
+
+a.btn-border01:before,
+a.btn-border01:after {
+  position: absolute;
+
+  width: 100%;
+  height: 2px;
+
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+
+  background: #000;
+}
+
+a.btn-border01:before {
+  top: 0;
+  left: 0;
+}
+
+a.btn-border01:after {
+  right: 0;
+  bottom: 0;
+}
+
+a.btn-border01:hover:before,
+a.btn-border01:hover:after {
+  width: 0;
+}
+
+}
+  li{
+    list-style: none;
+  }
+}

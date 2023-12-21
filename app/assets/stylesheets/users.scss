@@ -1,0 +1,98 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.USERtitle h3{
+    margin: 0px 0px 0px 0px;
+    font-size: 50px;
+}
+.USER{
+    padding-bottom: 30px;
+    background-color: rgb(238, 240, 230);
+}
+.USERinfo{
+    width: 90%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: transparent;
+    padding-top: 60px;
+    padding-bottom: 90px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 20px;
+    text-align:left;
+    padding-left: 90px;
+    border-bottom: solid 1px;
+    display: flex;
+    justify-content: center;
+}
+.USERinfo ul{
+    color:rgb(98, 148, 18);
+    list-style: none;
+}
+.USERinfo li{
+    color: black
+}
+.profile{
+    width: 50%;
+    margin-left: 30px;
+}
+.USERposts{
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+    .posts{
+        width: 30%;
+        background-color: transparent;
+        margin: 20px 0px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-bottom: solid 1px;
+    }
+    .USERpostspics{
+        border-radius: 20%;
+    }
+    .USERpoststitle h2{
+        font-family: 'DM Serif Display', serif;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+.user-in{
+    text-align: center;
+    width: 40%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-family: 'DM Serif Display', serif;
+  
+}
+.gazou{
+    border-radius: 50%;
+    width:180px;
+    height:180px;
+   }
+.USERtitle{
+    margin: 50px 0px;
+    display: flex;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+}
+.aaaaaa1{
+    text-align: center;
+    margin-top: 100px;
+    border: solid;
+    margin-left: 500px;
+    margin-right: 500px;
+    background-color: white;
+}
+.user-inbutton{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}

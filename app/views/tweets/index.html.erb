@@ -1,0 +1,83 @@
+<div class="INDEX">
+  <div class="INDEXtitle">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+    <h3>COMPANY LINEUP</h3>
+  </div>
+  <br>
+  <div class="searchbox">
+    <h3>SEARCH BY COMPANY NAME</h3>
+  </div>
+  <div class="searchbutton">
+  <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'SEARCH', class:"sign-btn" %>
+  <% end %>
+  </div>
+
+  <div class="INDEXtweet">
+    <% @tweets.each do |t| %>
+      <div class="tweet">
+        <%= image_tag t.image_url, class:"INDEXpics", size: "350x300" if t.image? %><br>
+        <div class="INDEXtweettitle">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+          <h2><%= link_to t.name, tweet_path(t.id) %></h2>
+        </div>
+        <%= link_to t.link %><br>
+
+        <div class="tweet01">
+          <h4>INDUSTRY</h4>
+          <%= t.genre%>
+        </div><br>
+        <div class="tweet02">
+          <h4>Posted By</h4>
+          <%= link_to t.user.name, user_path(t.user.id) %>
+        </div><br>
+        <div class="tweet03">
+          <h4>LENGTH OF SERVICE</h4>
+          <%= t.year %>
+        </div><br>
+        <div class="tweet04">
+          <h4>ABOUT</h4>
+          <%= t.about %>
+        </div><br>
+        <h4>POSTERS COMMENT</h4>
+        <div class="tweetcomment">
+          <%= t.comment %><br><br>
+        </div>
+          
+      <div>
+        <h4>POSTER SCORES：
+          <span class="star-rating">
+            <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+            <span class="star-rating-back">★★★★★</span>
+          </span> 
+        </h4>
+      </div>
+
+      <% if user_signed_in? && current_user.id == t.user_id %>
+        <%= button_to "EDIT", edit_tweet_path(t.id) %>
+        <%= button_to "DELETE", tweet_path(t.id), method: :delete %>
+      <% end %> 
+
+    <% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+          <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+          <i class="fas fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <% else %>
+          <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
+          <i class="far fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <% end %>
+    <% else %>
+        <i class="far fa-heart"></i><%= t.likes.count %>
+    <% end %>
+    </div>
+    
+
+    <% end %>
+</div>

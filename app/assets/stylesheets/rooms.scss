@@ -1,0 +1,126 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//ここからはDMリスト(users.index.html)
+.DMLISTtitle{
+  margin: 50px 0px 30px 0px;
+  text-align: center;
+  font-size: 45px;
+  font-family: 'DM Serif Display', serif;
+  display: flex;
+  justify-content: center;
+}
+.flex{
+  background-color: rgb(238, 240, 230);
+  display: flex;
+  justify-content:center;
+}
+.DMusers{
+  width: 70%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+}
+
+//ここからがDMトークルーム （rooms.show.html）
+.DM{
+  .body01{
+    margin: 30px 0px 30px 0px;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'DM Serif Display', serif;
+  }
+}
+.user_image {
+    border-radius: 300px;
+}
+.dm{
+    margin: 30px 0px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 50px;
+    text-align: center;
+}
+.user{
+    width: 50%;
+}
+.users_image {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 20px ;
+}
+.dm_container{
+    width: 100%;
+    min-height: 500px;
+    background-color: rgb(238, 240, 230);
+    margin-top:30px;
+    padding: 30px;
+}
+.balloon{
+    position: relative;
+    padding: 20px;
+    background-color: #FFF3AD ;
+    margin: 10px 50% 0 30px;
+    border-radius: 20px;
+  }
+.balloon::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -15px;
+    top: 20px;
+    border-right: 15px solid #FFF3AD;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+  .balloon2{
+    position: relative;
+    padding: 20px;
+    background-color: #F7B5F3 ;
+    margin: 10px 30px 0 50% ;
+    border-radius: 20px;
+  }
+.balloon2::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    right: -15px;
+    top: 20px;
+    border-left: 15px solid #F7B5F3;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+  .user_kensaku{
+    text-align: center;
+    margin:30px 0px;
+    display: flex;
+    align-items: flex-end;
+    input[type="text"]{
+        width: 80%;
+        height: 50px;
+        font-size: 14px;
+        border-radius: 10px;
+        padding: 0 30px ;
+    }
+    ::placeholder{
+        padding: 5px 5px;
+    }
+  }
+  .i{
+    text-align: center;
+    border:solid;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 20px;
+    background-color: white;
+  }
+  .DMlist{
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+  }
+  

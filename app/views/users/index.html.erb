@@ -1,0 +1,48 @@
+<div class="DMLIST">
+    <div class="DMLISTtitle">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+        <h3>DM LIST</h3>
+    </div>
+    
+    <% if user_signed_in? %>
+        
+        <div class="flex">
+            <% @users.each do |u| %>
+            <div class="DMusers">
+                <h4><%= u.name %></h4>
+                <p><%= link_to 'User Profile', user_path(u.id) %></p><br>
+                <hr size="1" >          
+            </div>
+            <% end %>
+        </div>
+
+    <% else %>
+    <%= link_to "SignUp", new_user_registration_path %>
+    <br>
+    <%= link_to "SignIn", new_user_session_path %>
+    <% end %>
+
+    <style>
+    .signOutButton{
+        text-decoration:none;
+        display:inline-block;
+        border:3px solid royalblue;
+        background-color:aliceblue;
+        padding:5px;
+    }
+    .flex{
+        display:flex;
+        flex-wrap:wrap;    
+    }
+    .user-in{
+        display:block;
+        width:300px;
+        text-align:center;
+        border:1px solid darkgray;
+        background-color:gainsboro;
+        flex-shrink: 0;
+    }
+    </style>
+</div>

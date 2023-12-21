@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How Do You Like It...?</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/32483ae2bd.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  </head>
+
+  <body>
+    <header>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+      <h1>How Do You Like It...?</h1>
+      <h5>#Communication Platform for International Job Seekers<br>
+          #Make Japan more Diverse & Inclusive
+      </h5>
+      <div class="header-list">
+        <ul>
+            <li><%= link_to "HOME", tweets_top_path %></li>
+            <li><%= link_to "COMPANY LINEUP", tweets_path %></li>
+            <li><%= link_to "+CREATE", new_tweet_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "MYPAGE", user_path(current_user.id) %></li>
+            <li><%= link_to "DM", users_path %></li>
+          <% end %>
+            
+          <% if user_signed_in? %>
+            <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "SIGN UP", new_user_registration_path %>/<%= link_to "LOG IN", new_user_session_path %></li>
+          <% end %>
+        
+        </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+  
+  <footer>
+      <h2>How Do You Like It...?</h2>
+      <p>Copyright © GeekSalon All Rights Reserved.</p>
+  </footer>
+</html>

@@ -1,0 +1,37 @@
+<div class="LOGIN">  
+  <div class="LOGINtitle">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Yellowtail&display=swap" rel="stylesheet">
+    <h2>LOG IN</h2>
+  </div>
+  <p>※Please enter your e-mail adress and password.</p>
+  <br>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <h2>E-mail Adress </h2>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  <br>
+    <div class="field">
+      <h2>Password</h2>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+    <br>
+    <div class="Remembercheck">
+      <% if devise_mapping.rememberable? -%>
+      
+        <%= f.check_box :remember_me %>
+        <h3>Remember this information for next login</h3>
+        
+      <% end -%>
+    </div>
+  <br>
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+
+</div>
